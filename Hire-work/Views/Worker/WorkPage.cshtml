@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Hire_work.Models.Advert>
+@{
+    ViewData["Title"] = "WorkPage";
+}
+<h2>Adverts</h2>
+@foreach(var advert in Model)
+{
+    <ul>
+        <li>@advert.AdvertName</li>
+        <li>@advert.Description</li>
+        <li><a asp-action="AdvertDetails" asp-controller="Advert" asp-route-id="@advert.Id">See more details</a></li>
+    </ul>
+}

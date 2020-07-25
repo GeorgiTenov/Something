@@ -1,0 +1,46 @@
+﻿@model Advert
+@{
+    ViewData["Title"] = "Index";
+}
+
+@using (Html.BeginForm("Accepted", "Advert", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <span>Enter Advert Name:</span>
+    @Html.TextBoxFor(a => a.AdvertName)
+    <hr />
+    <span>Enter city:</span>
+    <select asp-for="City" asp-items="@Html.GetEnumSelectList<Hire_work.Models.Enums.City>()">
+        <option>Select City...</option>
+    </select>
+    <hr />
+    <span>Enter category:</span>
+    <select asp-for="MainCategory" asp-items="@Html.GetEnumSelectList<Hire_work.Models.Enums.MainCategory>()">
+        <option>Select City...</option>
+    </select>
+    <hr />
+    <span>Description:</span>
+    @Html.TextBoxFor(a => a.Description)
+    <hr />
+    <span>Addreess:</span>
+    @Html.TextBoxFor(a => a.Address)
+    <hr />
+    <span>Email Address:</span>
+    @Html.TextBoxFor(a => a.EmailAddress)
+    <hr />
+    <span>Monthly Payment:</span>
+    @Html.TextBoxFor(a => a.MonthlyPayment)
+    <hr />
+    <span>Hourly Payment:</span>
+    @Html.TextBoxFor(a => a.HourPayment)
+    <hr />
+    <span>Expected working hours:</span>
+    @Html.TextBoxFor(a => a.WorkHours)
+    <hr />
+    <span>Contact:</span>
+    @Html.TextBoxFor(a => a.PhoneNumber)
+    <hr />
+    <input type="submit" value="Submit" />
+
+}
+

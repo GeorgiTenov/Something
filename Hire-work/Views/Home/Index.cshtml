@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Hire_work.Models.Worker>
+@{
+    ViewData["Title"] = "Home Page";
+}
+    <link href="~/Styling/HomeStyle.css" asp-append-version="true" rel="stylesheet" />
+
+
+@if(Model != null)
+{
+    @foreach(var worker in Model)
+    {
+        <ul id="workerList">
+            <li>@worker.Username</li>
+            @if(worker.PicturePath != null)
+            {
+               <li><img src="/Images/@worker.PicturePath" /></li> 
+            }
+            <li>@worker.Description</li>
+            <li>@worker.City</li>
+        </ul>
+    }
+}
+

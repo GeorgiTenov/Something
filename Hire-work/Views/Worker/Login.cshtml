@@ -1,0 +1,23 @@
+﻿@model Worker
+@{
+    ViewData["Title"] = "Login";
+}
+
+@using (Html.BeginForm("Logged", "Worker", FormMethod.Get))
+{
+    @Html.AntiForgeryToken();
+    <span>Enter Your Username:</span>
+    @Html.TextBoxFor(m => m.Username)
+    <hr />
+    <span>Enter Your Password:</span>
+    @Html.PasswordFor(M => M.Password);
+    <hr />
+    <input type="submit" value="Log in" />
+
+}
+<br />
+<a asp-action="Index" asp-controller="Worker">Not Registered Yet?</a>
+
+
+
+

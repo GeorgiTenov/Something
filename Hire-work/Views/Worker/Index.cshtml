@@ -1,0 +1,62 @@
+﻿@model Worker
+@{
+    ViewData["Title"] = "Index";
+}
+    <div>
+
+        @using (Html.BeginForm("Register", "Worker", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            <span>Enter Your Username:</span>
+            @Html.TextBoxFor(m => m.Username)
+            <hr />
+            <span>Enter Your Password:</span>
+            @Html.PasswordFor(m => m.Password);
+            <hr />
+            <span>Enter Your First Name:</span>
+            @Html.TextBoxFor(m => m.FirstName)
+            <hr />
+            <span>Enter Your Last Name:</span>
+            @Html.TextBoxFor(m => m.LastName)
+            <hr />
+            <span>Enter Description:</span>
+            @Html.TextBoxFor(m => m.Description)
+            <hr />
+            <span>Enter Your Portfolio:</span>
+            @Html.TextBoxFor(m => m.Portfolio)
+            <hr />
+            <span>Enter Your Email Address:</span>
+            @Html.TextBoxFor(m => m.EmailAddress)
+            <hr />
+            <span>Enter Your Phone:</span>
+            @Html.TextBoxFor(m => m.Phone)
+            <hr />
+            <span>Working Category:</span>
+            <select asp-for="MainCategory"
+                    class="form-control"
+                    asp-items="Html.GetEnumSelectList<Hire_work.Models.Enums.MainCategory>()">
+                <option>Select type ...</option>
+            </select>
+            <hr />
+            <span>City:</span>
+            <select asp-for="City"
+                    class="form-control"
+                    asp-items="Html.GetEnumSelectList<Hire_work.Models.Enums.City>()">
+                <option>Select type ...</option>
+            </select>
+            <hr />
+            <span>Enter Starting fee per hour:</span>
+            @Html.TextBoxFor(m => m.StartingHourFee)
+            <hr />
+            <span>Upload Picture</span>
+            @Html.TextBoxFor(m => m.Picture, new { type = "file" })
+            <hr />
+            <input id="Submit" type="submit" value="submit" />
+        }
+
+
+
+    </div>
+
+
+
